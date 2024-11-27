@@ -1,7 +1,6 @@
 
 import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -35,7 +34,6 @@ public class snackMenu {
         snacks.add("M&M");
         snacks.add("Snickers");
         snacks.add("Reese's");
-        Collections.sort(snacks);
         System.out.println("Zvolili ste si snacky, tu je nasa ponuka: ");
         for (int i = 0; i < snacks.size(); i++) {
             if (i < pismena.size() && i < cisla.size()) {  
@@ -50,30 +48,36 @@ public class snackMenu {
             if (vyber.equalsIgnoreCase("A1")) {
                 popcorn--;
                 writer.write("Popcorn: " + popcorn + "\n");
+                writer.close();
                 System.out.println("Vybral si si popcorn");
                 platba();
             }
             if (vyber.equalsIgnoreCase("B2")) {
                 twix--;
                 writer.write("Twix: " + twix + "\n");
+                writer.close();
                 System.out.println("Vybral si si twix");
                 platba();
             }
             if (vyber.equalsIgnoreCase("C3")) {
                 mms--;
                 writer.write("M&M: " + mms + "\n");
+                writer.close();
                 System.out.println("Vybral si si M&M");
                 platba();
             }
             if(vyber.equalsIgnoreCase("D4")){
                 snickers--;
                 writer.write("Snickers: " + snickers + "\n");
+                writer.close();
                 System.out.println("Vybral si si snickers");
                 platba();
+                
             }
             if(vyber.equalsIgnoreCase("E5")){
                 reese--;
                 writer.write("Reese's: " + reese + "\n");
+                writer.close();
                 System.out.println("Vybral si si reese's");
                 platba();
             }
@@ -101,15 +105,22 @@ public class snackMenu {
                 Thread.sleep(1000);
                 System.out.println("Vlozili ste mince do kavomatu....");
                 System.out.println("Snack sa pripravuje...");
-                Thread.sleep(2000);
+                Thread.sleep(1000);
+                System.out.println("...");
+                Thread.sleep(1000);
+                System.out.println("...");
+                Thread.sleep(1000);
+                System.out.println("...");
+                Thread.sleep(1000);
                 System.out.println("Snack je pripraveny na zobratie, Dakujeme za navstevu!");
+                System.exit(0);
     
             }
             if(vyber.equalsIgnoreCase("nie")){
                 System.out.println("Zadajte presnu ciastku aku mate: ");
                 int ciastka = scanner.nextInt();
                 double vydavok = ciastka - cena.getCena();
-                if(ciastka > 10){
+                if(ciastka > 6){
                     System.out.println("Kavomat nemoze vidat taku ciastku");
                 }
                 else if (ciastka < 0) {
@@ -117,8 +128,15 @@ public class snackMenu {
                 }
                 System.out.println("Tu je vas vydavok: " + vydavok + " Eur");
                 System.out.println("Snack sa pripravuje...");
-                Thread.sleep(2000);
+                Thread.sleep(1000);
+                System.out.println("...");
+                Thread.sleep(1000);
+                System.out.println("...");
+                Thread.sleep(1000);
+                System.out.println("...");
+                Thread.sleep(1000);
                 System.out.println("Snack je pripraveny na zobratie, Dakujeme za navstevu!");
+                System.exit(ciastka);
             }
         } catch (Exception e) {
             System.out.println("Something went wrong");
