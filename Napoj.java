@@ -1,11 +1,14 @@
 public class Napoj extends Item {
-    private int napojId;
+    private String napojId;
 
-    public int getNapojId() {
+    public String getNapojId() {
         return napojId;
     }
 
-    public void setNapojId(int napojId) {
+    public void setNapojId(String napojId) {
         this.napojId = napojId;
     }
-}
+
+   
+    }
+
