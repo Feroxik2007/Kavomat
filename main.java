@@ -77,7 +77,7 @@ public class main {
                     studenyNapoj();
                 }
                 System.out.println("Vybrali ste si Fantu , cena je " + napojeCena.getCena() + " Eur");
-                platbaStudene();
+                platba();
                 FileWriter writer = new FileWriter("studeneNapoje.txt");
                 writer.write("Fanta: " + fanta + "\n");
                 writer.write("\n");
@@ -90,7 +90,7 @@ public class main {
             if (vyber == 2) {
                 Kofola--;
                 System.out.println("Vybrali ste si Kofolu , cena je " + napojeCena.getCena() + " Eur");
-                platbaStudene();
+                platba();
                 FileWriter writer = new FileWriter("studeneNapoje.txt");
                 writer.write("Kofola: " + Kofola + "\n");
                 writer.write("\n");
@@ -99,7 +99,7 @@ public class main {
             if (vyber == 3) {
                 aloeVera--;
                 System.out.println("Vybrali ste si Aloe-Veru , cena je " + napojeCena.getCena() + " Eur");
-                platbaStudene();
+                platba();
                 FileWriter writer = new FileWriter("studeneNapoje.txt");
                 writer.write("Aloe-Vera: " + aloeVera + "\n");
                 writer.write("\n");
@@ -108,7 +108,7 @@ public class main {
             if (vyber == 4) {
                 monster--;
                 System.out.println("Vybrali ste si Monstera , cena je " + napojeCena.getCena() + " Eur");
-                platbaStudene();  
+                platba();
                 FileWriter writer = new FileWriter("studeneNapoje.txt");
                 writer.write("Monster: " + monster + "\n");
                 writer.write("\n");
@@ -128,6 +128,7 @@ public class main {
     public static void teplyNapoj(){
         Item napojeCena = new Item();
         napojeCena.setCena(1.5);
+        Napoj napoj = new Napoj();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Zvolili ste si teple napoje!");
         System.out.println("Tu je nase menu: ");
@@ -138,20 +139,24 @@ public class main {
         int vyber = scanner.nextInt();
         try {
             if (vyber == 1) {
-                System.out.println("Vybrali ste si Latte , cena je " + napojeCena.getCena() + " Eur");
+                napoj.setNapojId("Latte");
+                System.out.println("Vybrali ste si " + napoj.getNapojId() +   ", cena je " + napojeCena.getCena() + " Eur");
                 platba();
 
             }
             if (vyber == 2) {
-                System.out.println("Vybrali ste si Cappuccino , cena je " + napojeCena.getCena() + " Eur");
+                napoj.setNapojId("Cappuccino");
+                System.out.println("Vybrali ste si " + napoj.getNapojId() +   ", cena je " + napojeCena.getCena() + " Eur");
                 platba();
             }
             if (vyber == 3) {
-                System.out.println("Vybrali ste si Americano , cena je " + napojeCena.getCena() + " Eur");
+                napoj.setNapojId("Americano");
+                System.out.println("Vybrali ste si " + napoj.getNapojId() +   ", cena je " + napojeCena.getCena() + " Eur");
                 platba();
             }
             if (vyber == 4) {
-                System.out.println("Vybrali ste si Espreso , cena je " + napojeCena.getCena() + " Eur");
+                napoj.setNapojId("Espreso");
+                System.out.println("Vybrali ste si " + napoj.getNapojId() +   ", cena je " + napojeCena.getCena() + " Eur");
                 platba();              
             }
             if (vyber > 4 || vyber < 1) {
@@ -166,6 +171,7 @@ public class main {
     }
     public static void platba() throws InterruptedException{
         Scanner scanner = new Scanner(System.in);
+        
         Item napojeCena = new Item();
         napojeCena.setCena(1.5);
         System.out.println("Mate presne " + napojeCena.getCena() + " Eur ?"  + " ano/nie");
@@ -175,9 +181,9 @@ public class main {
                 System.out.println("Prosím vložte mince do kavomatu");
                 Thread.sleep(1000);
                 System.out.println("Vlozili ste mince do kavomatu....");
-                System.out.println("Kava sa pripravuje...");
+                System.out.println("Prudukt sa pripravuje...");
                 Thread.sleep(2000);
-                System.out.println("Kava je pripravena, Dakujeme za navstevu!");
+                System.out.println("Prudukt je pripraveny, Dakujeme za navstevu!");
     
             }
             if(vyber.equalsIgnoreCase("nie")){
@@ -190,10 +196,10 @@ public class main {
                     System.out.println("Zadali ste zlu hodnotu");
                 }
                 System.out.println("Tu je vas vydavok: " + (ciastka - napojeCena.getCena()) + " Eur");
-                System.out.println("Kava sa pripravuje...");
+                System.out.println("Produkt sa pripravuje...");
                 Thread.sleep(2000);
-                System.out.println("Kava je pripravena, Dakujeme za navstevu!");
-            }
+                System.out.println("Produk je pripraveny, Dakujeme za navstevu!");
+            } 
         } catch (Exception e) {
             System.out.println("Something went wrong");
         }
@@ -201,41 +207,5 @@ public class main {
         
         
     }
-    public static void platbaStudene() throws InterruptedException{
-        Scanner scanner = new Scanner(System.in);
-        Item napojeCena = new Item();
-        napojeCena.setCena(1.8);
-        System.out.println("Mate presne " + napojeCena.getCena() + " Eur ?"  + " ano/nie");
-        String vyber = scanner.nextLine();
-        try {
-            if(vyber.equalsIgnoreCase("ano")){
-                System.out.println("Prosím vložte mince do kavomatu");
-                System.out.println("Vlozili ste mince do kavomatu....");
-                System.out.println("Napoj  sa pripravuje...");
-                Thread.sleep(2000);
-                System.out.println("Napoj je pripraveny, Dakujeme za navstevu!");
-    
-            }
-            if(vyber.equalsIgnoreCase("nie")){
-                System.out.println("Zadajte presnu ciastku aku mate: ");
-                int ciastka = scanner.nextInt();
-                if(ciastka > 10){
-                    System.out.println("Kavomat nemoze vidat taku ciastku");
-                }
-                else if (ciastka < 0) {
-                    System.out.println("Zadali ste zlu hodnotu");
-                }
-                System.out.println("Tu je vas vydavok: " + (ciastka - napojeCena.getCena()) + " Eur");
-                System.out.println("Napoj sa pripravuje...");
-                Thread.sleep(2000);
-                System.out.println("Napoj je pripraveny mozete si ho zobrat, Dakujeme za navstevu!");
-            }
-        } catch (Exception e) {
-            System.out.println("Something went wrong");
-        }
-        scanner.close();
-      
-        
-        
-    }
+   
 }
