@@ -22,7 +22,7 @@ public class main {
                 snack.menuSnackov();
             }
             if(vyber == 3){
-    
+                System.out.println("Dovidenia!");
             }
         } catch (Exception e) {
             System.out.println("Something went wrong!");
@@ -50,7 +50,7 @@ public class main {
         scanner.close();
     }
 
-    public static void studenyNapoj(){
+    public static void studenyNapoj() throws InterruptedException{
         Napoj napoj = new Napoj();
         
         
@@ -64,8 +64,11 @@ public class main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Zvolili ste studeny napoj, co si date?");
         System.out.println("1. Fanta , " + napojeCena.getCena() + "Eur");
+        Thread.sleep(500);
         System.out.println("2. Kofola , " + napojeCena.getCena() + "Eur");
+        Thread.sleep(500);
         System.out.println("3. Aloe-Vera , " + napojeCena.getCena() + "Eur");
+        Thread.sleep(500);
         System.out.println("4. Monster , " + napojeCena.getCena() + "Eur");
         int vyber  = scanner.nextInt();
         try {
@@ -125,7 +128,7 @@ public class main {
 
     }
 
-    public static void teplyNapoj(){
+    public static void teplyNapoj() throws InterruptedException{
         Item napojeCena = new Item();
         napojeCena.setCena(1.5);
         Napoj napoj = new Napoj();
@@ -133,8 +136,11 @@ public class main {
         System.out.println("Zvolili ste si teple napoje!");
         System.out.println("Tu je nase menu: ");
         System.out.println("1. Latte , " + napojeCena.getCena() + "Eur");
+        Thread.sleep(500);
         System.out.println("2. Cappuccino , " + napojeCena.getCena() + "Eur");
+        Thread.sleep(500);
         System.out.println("3. Americano , " + napojeCena.getCena() + "Eur");
+        Thread.sleep(500);
         System.out.println("4. Espreso , " + napojeCena.getCena() + "Eur");
         int vyber = scanner.nextInt();
         try {
@@ -182,8 +188,15 @@ public class main {
                 Thread.sleep(1000);
                 System.out.println("Vlozili ste mince do kavomatu....");
                 System.out.println("Prudukt sa pripravuje...");
-                Thread.sleep(2000);
+                Thread.sleep(1000);
+                System.out.println("...");
+                Thread.sleep(1000);
+                System.out.println("...");
+                Thread.sleep(1000);
+                System.out.println("...");
+                Thread.sleep(1000);
                 System.out.println("Prudukt je pripraveny, Dakujeme za navstevu!");
+                System.exit(0);
     
             }
             if(vyber.equalsIgnoreCase("nie")){
@@ -197,8 +210,15 @@ public class main {
                 }
                 System.out.println("Tu je vas vydavok: " + (ciastka - napojeCena.getCena()) + " Eur");
                 System.out.println("Produkt sa pripravuje...");
-                Thread.sleep(2000);
+                Thread.sleep(1000);
+                System.out.println("...");
+                Thread.sleep(1000);
+                System.out.println("...");
+                Thread.sleep(1000);
+                System.out.println("...");
+                Thread.sleep(1000);
                 System.out.println("Produk je pripraveny, Dakujeme za navstevu!");
+                System.exit(0);
             } 
         } catch (Exception e) {
             System.out.println("Something went wrong");
@@ -209,3 +229,4 @@ public class main {
     }
    
 }
+
