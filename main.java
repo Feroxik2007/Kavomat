@@ -7,12 +7,14 @@ public class main {
     }
 
     public static void uvodMenu(){
+        Admin admin = new Admin();
         Scanner scanner = new Scanner(System.in);
         snackMenu snack = new snackMenu();
         System.out.println("Vitajte vo Kavomate, co si prajete zvolit?");
         System.out.println("1. Napoje");
         System.out.println("2. Snacky");
-        System.out.println("3. Exit");
+        System.out.println("3. Admin");
+        System.out.println("4. Exit");
         int vyber = scanner.nextInt();
         try {
             if(vyber == 1){
@@ -22,6 +24,9 @@ public class main {
                 snack.Diddy();
             }
             if(vyber == 3){
+                admin.consola();
+            }
+            if(vyber == 4){
                 System.out.println("Dovidenia!");
             }
         } catch (Exception e) {
@@ -70,6 +75,7 @@ public class main {
         System.out.println("3. Aloe-Vera , " + napojeCena.getCena() + "Eur");
         Thread.sleep(500);
         System.out.println("4. Monster , " + napojeCena.getCena() + "Eur");
+        System.out.println("Co si prajete?");
         int vyber  = scanner.nextInt();
         try {
             if (vyber == 1) {
@@ -130,7 +136,7 @@ public class main {
 
     public static void teplyNapoj() throws InterruptedException{
         Item napojeCena = new Item();
-        napojeCena.setCena(1.5);
+        napojeCena.setCena(1.8);
         Napoj napoj = new Napoj();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Zvolili ste si teple napoje!");
@@ -142,6 +148,7 @@ public class main {
         System.out.println("3. Americano , " + napojeCena.getCena() + "Eur");
         Thread.sleep(500);
         System.out.println("4. Espreso , " + napojeCena.getCena() + "Eur");
+        System.out.println("Co si prajete? ");
         int vyber = scanner.nextInt();
         try {
             if (vyber == 1) {
@@ -179,7 +186,7 @@ public class main {
         Scanner scanner = new Scanner(System.in);
         
         Item napojeCena = new Item();
-        napojeCena.setCena(1.5);
+        napojeCena.setCena(1.8);
         System.out.println("Mate presne " + napojeCena.getCena() + " Eur ?"  + " ano/nie");
         String vyber = scanner.nextLine();
         try {
@@ -229,4 +236,5 @@ public class main {
     }
    
 }
+
 
