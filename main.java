@@ -19,7 +19,7 @@ public class main {
                 napoje();
             }
             if(vyber == 2){
-                snack.menuSnackov();
+                snack.Diddy();
             }
             if(vyber == 3){
                 System.out.println("Dovidenia!");
